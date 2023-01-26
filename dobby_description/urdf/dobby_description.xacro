@@ -1,0 +1,296 @@
+<?xml version="1.0"?>
+<robot name="dobby" xmlns:xacro="http://ros.org/wiki/xacro">
+  
+  <link name="base_footprint"></link>
+
+  <joint name="base_link_joint" type="fixed">
+    <origin xyz="-0.0859728751611104 0 0.0586" rpy="0 0 0" />
+    <parent link="base_footprint" />
+    <child link="base_link" />
+  </joint>
+
+  <link name="base_link">
+    <inertial>
+      <origin
+        xyz="-0.02179 -0.00025334 0.018793"
+        rpy="0 0 0" />
+      <mass value="3" />
+      <inertia
+        ixx="0.0020349"
+        ixy="-2.65E-07"
+        ixz="7.917E-08"
+        iyy="0.0038398"
+        iyz="-1.6854E-06"
+        izz="0.0057845" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="file://$(find dobby_description)/meshes/base_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="file://$(find dobby_description)/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="wheel_left_link">
+    <inertial>
+      <origin xyz="-2.5698E-09 -0.18478 -4.0976E-09" rpy="0 0 0" />
+      <mass value="0.078506" />
+      <inertia
+        ixx="4.0395E-05"
+        ixy="-1.4801E-12"
+        ixz="5.0607E-13"
+        iyy="7.609E-05"
+        iyz="-1.637E-13"
+        izz="4.0395E-05" />
+      </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="file://$(find dobby_description)/meshes/wheel_left_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="file://$(find dobby_description)/meshes/wheel_left_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="wheel_left_joint" type="continuous">
+    <origin xyz="0.0859728751611104 0.0924992326649866 -0.01635" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="wheel_left_link" />
+    <axis xyz="0 1 0" />
+  </joint>
+
+  <link name="wheel_right_link">
+    <inertial>
+      <origin xyz="1.1727E-09 0.18477 4.7533E-09" rpy="0 0 0" />
+      <mass value="0.07756" />
+      <inertia
+        ixx="4.0323E-05"
+        ixy="9.1137E-13"
+        ixz="5.6284E-12"
+        iyy="7.6088E-05"
+        iyz="-1.1777E-12"
+        izz="4.0323E-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="file://$(find dobby_description)/meshes/wheel_right_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="file://$(find dobby_description)/meshes/wheel_right_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="wheel_right_joint" type="continuous">
+    <origin xyz="0.0859728751611104 -0.0926007673350134 -0.01635" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="wheel_right_link" />
+    <axis xyz="0 1 0" />
+  </joint>
+
+  <link name="caster_left_link">
+    <inertial>
+      <origin xyz="8.5537E-09 -0.0050667 0.0087941" rpy="0 0 0" />
+      <mass value="0.058419" />
+      <inertia
+        ixx="1.8183E-05"
+        ixy="-1.668E-12"
+        ixz="3.7422E-12"
+        iyy="1.3635E-05"
+        iyz="1.4907E-06"
+        izz="1.3362E-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="file://$(find dobby_description)/meshes/caster_left_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="file://$(find dobby_description)/meshes/caster_left_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="caster_left_joint" type="fixed">
+    <origin xyz="-0.11688712483889 0.0912692326649866 -0.0332" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="caster_left_link" />
+    <axis xyz="0 0 0" />
+  </joint>
+
+  <link name="caster_right_link">
+    <inertial>
+      <origin xyz="0.016129 0.0050667 0.0087941" rpy="0 0 0" />
+      <mass value="0.058419" />
+      <inertia
+        ixx="1.8183E-05"
+        ixy="-1.668E-12"
+        ixz="-3.7422E-12"
+        iyy="1.3635E-05"
+        iyz="-1.4907E-06"
+        izz="1.3362E-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="file://$(find dobby_description)/meshes/caster_right_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="file://$(find dobby_description)/meshes/caster_right_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="caster_right_joint" type="fixed">
+    <origin xyz="-0.13301612483889 -0.0913707673350134 -0.0332" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="caster_right_link" />
+    <axis xyz="0 0 0" />
+  </joint>
+
+  <link name="lift_link">
+    <inertial>
+      <origin xyz="9.6601E-08 1.6507E-18 -0.0045927" rpy="0 0 0" />
+      <mass value="10" />
+      <inertia
+        ixx="0.00043238"
+        ixy="7.3387E-20"
+        ixz="-1.2294E-21"
+        iyy="0.00031087"
+        iyz="6.2072E-22"
+        izz="0.00073501" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="file://$(find dobby_description)/meshes/lift_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="file://$(find dobby_description)/meshes/lift_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="lift_joint" type="prismatic">
+    <origin xyz="-0.0168871248388896 -5.07673350133662E-05 0.069489457406549" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="lift_link" />
+    <axis xyz="0 0 1" />
+    <limit lower="0" upper="0.02" effort="1000" velocity="0.05" />
+  </joint>
+
+  <link name="lidar_link">
+    <inertial>
+      <origin xyz="0.0012332 0.00013829 -0.010655" rpy="0 0 0" />
+      <mass value="0.18368" />
+      <inertia
+        ixx="6.732E-05"
+        ixy="3.5606E-07"
+        ixz="1.6764E-08"
+        iyy="6.7746E-05"
+        iyz="2.9724E-08"
+        izz="0.000122" />
+    </inertial>
+    <visual>`
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="file://$(find dobby_description)/meshes/lidar_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="file://$(find dobby_description)/meshes/lidar_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="lidar_joint" type="fixed">
+    <origin xyz="0.0841672913168166 -0.000352355651321994 -0.0378418986893078" rpy="3.1415926536 0 3.1415926536" />
+    <parent link="base_link" />
+    <child link="lidar_link" />
+    <axis xyz="0 0 0" />
+  </joint>
+
+  <link name="camera_link">
+    <inertial>
+        <origin xyz="-0.010253 -2.6267E-06 0.001282" rpy="0 0 0" />
+        <mass value="0.061453" />
+        <inertia
+        ixx="3.3156E-05"
+        ixy="-1.4254E-09"
+        ixz="3.0461E-08"
+        iyy="6.0448E-06"
+        iyz="-1.2401E-09"
+        izz="3.1071E-05" />
+    </inertial>
+    <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+        <mesh filename="file://$(find dobby_description)/meshes/camera_link.STL" />
+        </geometry>
+        <material name="">
+        <color rgba="0.75294 0.75294 0.75294 1" />
+        </material>
+    </visual>
+    <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+        <mesh filename="file://$(find dobby_description)/meshes/camera_link.STL" />
+        </geometry>
+    </collision>
+  </link>
+
+  <joint name="camera_joint" type="fixed">
+    <origin xyz="0.15141287516111 -0.000212126723628815 0.02" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="camera_link" />
+    <axis xyz="0 0 0" />
+  </joint>
+
+</robot>
