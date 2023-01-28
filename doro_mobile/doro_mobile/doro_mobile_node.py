@@ -13,7 +13,7 @@ from .doro_packet_handler import PacketHandler
 class DOROMobileNode(Node):
   def __init__(self):
     super().__init__('doro_mobile_robot_setting')
-    self.declare_parameter('port_name', '/dev/ttyUSB0')
+    self.declare_parameter('port_name', '/dev/ttyUSB1')
     self.declare_parameter('port_baudrate', 115200)
     self.declare_parameter('wheel_seperation', 0.1851)
     self.declare_parameter('wheel_radius', 0.04225)

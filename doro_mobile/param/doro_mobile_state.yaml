@@ -1,6 +1,6 @@
 doro_mobile_robot_node:
   ros__parameters:
-    port_name: '/dev/ttyUSB0'
+    port_name: '/dev/ttyUSB1'
     port_baudrate: 115200
     wheel_seperation: 0.1851
     wheel_radius: 0.04225
